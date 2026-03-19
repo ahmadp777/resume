@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Ahmad Pak Mehr</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .resume {
+            width: 210mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            background: white;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
+            color: white;
+            padding: 25px 20px;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #3498db;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .job-title {
+            font-size: 0.85rem;
+            color: #3498db;
+            font-weight: 500;
+        }
+
+        .sidebar-section {
+            margin-bottom: 20px;
+        }
+
+        .sidebar-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.75rem;
+        }
+
+        .contact-item i {
+            width: 25px;
+            color: #3498db;
+            font-size: 0.85rem;
+        }
+
+        .contact-item span {
+            word-break: break-all;
+        }
+
+        .skill-item {
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            font-size: 0.75rem;
+            margin-bottom: 4px;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: #39f05b;
+            border-radius: 3px;
+        }
+
+        .skill-level.w-100 { width: 100%; }
+        .skill-level.w-95 { width: 95%; }
+        .skill-level.w-85 { width: 85%; }
+        .skill-level.w-80 { width: 80%; }
+        .skill-level.w-70 { width: 70%; }
+        .skill-level.w-65 { width: 65%; }
+        .skill-level.w-50 { width: 50%; }
+
+        .contact-link {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            margin-bottom: 8px;
+        }
+
+        .language-dots {
+            display: flex;
+            gap: 3px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .dot.filled {
+            background: #3498db;
+        }
+
+        .soft-skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .soft-skill {
+            font-size: 0.65rem;
+            background: rgba(52, 152, 219, 0.3);
+            padding: 3px 8px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .project-item {
+            margin-bottom: 10px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .project-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 8px;
+            height: 8px;
+            background: #3498db;
+            border-radius: 50%;
+        }
+
+        .project-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .project-desc {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 25px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #3498db;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title i {
+            color: #3498db;
+            font-size: 0.9rem;
+        }
+
+        .profile-text {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .experience-item::before, .education-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 8px;
+            height: 8px;
+            background: #3498db;
+            border-radius: 50%;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 3px;
+        }
+
+        .item-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .item-date {
+            font-size: 0.75rem;
+            color: #3498db;
+            font-weight: 500;
+        }
+
+        .item-company {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 4px;
+        }
+
+        .item-description {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .item-description ul {
+            margin-left: 15px;
+            margin-top: 3px;
+        }
+
+        .item-description li {
+            margin-bottom: 2px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+
+            .resume {
+                box-shadow: none;
+                width: 100%;
+                height: 100vh;
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <img src="pic.jpg" alt="Profile Photo" class="profile-photo">
+                <h1 class="name">Ahmad Pak Mehr</h1>
+                <p class="job-title">Front-end Developer</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Contact</h3>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+45 91719216</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span><a href="mailto:ahmad.pakmehr@gmail.com" class="contact-link">ahmad.pakmehr@gmail.com</a></span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Vikærsvej, 8240 Risskov</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span><a href="https://www.linkedin.com/in/ahmad-pakmehr" target="_blank" rel="noopener" class="contact-link">linkedin.com/in/ahmad-pakmehr</a></span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <span><a href="https://github.com/ahmadp777" target="_blank" rel="noopener" class="contact-link">github.com/ahmadp777</a></span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <span><a href="https://vioapps.com/" target="_blank" rel="noopener" class="contact-link">vioapps.com</a></span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Skills</h3>
+                <div class="skill-item">
+                    <div class="skill-name">HTML5</div>
+                    <div class="skill-bar">
+                        <div class="skill-level w-100"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">CSS3</div>
+                    <div class="skill-bar">
+                        <div class="skill-level w-95"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">JavaScript</div>
+                    <div class="skill-bar">
+                        <div class="skill-level w-80"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Flutter</div>
+                    <div class="skill-bar">
+                        <div class="skill-level w-50"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Git & GitHub</div>
+                    <div class="skill-bar">
+                        <div class="skill-level w-70"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Soft Skills</h3>
+                <div class="soft-skills-list">
+                    <span class="soft-skill">Teamwork</span>
+                    <span class="soft-skill">Creativity</span>
+                    <span class="soft-skill">Responsibility</span>
+                    <span class="soft-skill">Punctuality</span>
+                    <span class="soft-skill">Detail-oriented</span>
+                    <span class="soft-skill">Structured approach</span>
+                    <span class="soft-skill">Positive attitude</span>
+                    <span class="soft-skill">Strong Work Ethic</span>
+                    <span class="soft-skill">Problem solving</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Languages</h3>
+                <div class="skill-item">
+                    <div class="skill-name">English</div>
+                    <div class="skill-bar">
+                        <div class="skill-level w-85"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Danish</div>
+                    <div class="skill-bar">
+                        <div class="skill-level w-50"></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-user"></i> Professional Profile</h2>
+                <p class="profile-text">
+                    I am a Front-End Development trainee at HackYourFuture, learning to build modern, responsive, and user-friendly web pages. My journey into programming began with a strong interest in problem-solving and creativity, leading me to self-study HTML, CSS, and JavaScript, which sparked my passion for turning ideas into functional digital solutions. Alongside this, I am learning Flutter to develop Android mobile apps, focusing on creating practical solutions to everyday problems I encountered. Before entering the tech world, I earned my degree in Chemical Engineering and spent several years working in the oil industry as a Control Room Operator and Shift Supervisor. This experience helped me develop strong analytical thinking, attention to detail, and teamwork skills.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="item-title">Warehouse Worker</span>
+                        <span class="item-date">Feb 2022 - Present</span>
+                    </div>
+                    <div class="item-company">Aarhus Salling Group Warehouses</div>
+                    <div class="item-description">
+                        <ul>
+                            <li>Nominated for Employee of the Month</li>
+                            <li>Collaborated in a diverse, multicultural work environment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="item-title">Control Room Operator / Shift Supervisor</span>
+                        <span class="item-date">May 2010 - May 2021</span>
+                    </div>
+                    <div class="item-company">Abadan Oil Refinery, Iran</div>
+                    <div class="item-description">
+                        <ul>
+                            <li>Led and coordinated shift team ensuring safe operations</li>
+                            <li>Monitored and controlled plant processes</li>
+                            <li>Developed strong analytical thinking and attention to detail</li>
+                            <li>Worked under pressure in high-stakes environment</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <span class="item-title">Web Development Trainee</span>
+                        <span class="item-date">Oct 2025 - Present</span>
+                    </div>
+                    <div class="item-company">HackYourFuture, Aarhus</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="item-header">
+                        <span class="item-title">M.Sc. in Chemical Engineering</span>
+                        <span class="item-date">Sep 2013 - Dec 2016</span>
+                    </div>
+                    <div class="item-company">Islamic Azad University, Iran</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="item-header">
+                        <span class="item-title">B.Sc. in Chemical Engineering</span>
+                        <span class="item-date">Sep 2001 - Dec 2006</span>
+                    </div>
+                    <div class="item-company">Sharif University, (Iran Iran's top ranked technical university)</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-code"></i> Projects</h2>
+                
+                <div class="project-item">
+                    <div class="project-name"><a href="https://play.google.com/store/apps/details?id=com.textify.imagetotext" target="_blank" rel="noopener" class="contact-link">Textify</a></div>
+                    <div class="project-desc">Android mobile application for extracting text from images</div>
+                    <div class="project-desc">100+ downloads</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-name"><a href="https://play.google.com/store/apps/details?id=com.calculator.premium" target="_blank" rel="noopener" class="contact-link">Big Int Calculator</a></div>
+                    <div class="project-desc">Android mobile app for performing calculations with large numbers</div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
