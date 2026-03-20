@@ -119,14 +119,6 @@
             border-radius: 3px;
         }
 
-        .skill-level.w-100 { width: 100%; }
-        .skill-level.w-95 { width: 95%; }
-        .skill-level.w-85 { width: 85%; }
-        .skill-level.w-80 { width: 80%; }
-        .skill-level.w-70 { width: 70%; }
-        .skill-level.w-65 { width: 65%; }
-        .skill-level.w-50 { width: 50%; }
-
         .contact-link {
             color: inherit;
             text-decoration: none;
@@ -350,31 +342,31 @@
                 <div class="skill-item">
                     <div class="skill-name">HTML5</div>
                     <div class="skill-bar">
-                        <div class="skill-level w-100"></div>
+                        <div class="skill-level" data-level="90"></div>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">CSS3</div>
                     <div class="skill-bar">
-                        <div class="skill-level w-95"></div>
+                        <div class="skill-level" data-level="80"></div>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">JavaScript</div>
                     <div class="skill-bar">
-                        <div class="skill-level w-80"></div>
+                        <div class="skill-level" data-level="60"></div>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">Flutter</div>
                     <div class="skill-bar">
-                        <div class="skill-level w-50"></div>
+                        <div class="skill-level" data-level="40"></div>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">Git & GitHub</div>
                     <div class="skill-bar">
-                        <div class="skill-level w-70"></div>
+                        <div class="skill-level" data-level="60"></div>
                     </div>
                 </div>
             </div>
@@ -399,13 +391,13 @@
                 <div class="skill-item">
                     <div class="skill-name">English</div>
                     <div class="skill-bar">
-                        <div class="skill-level w-85"></div>
+                        <div class="skill-level" data-level="85"></div>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">Danish</div>
                     <div class="skill-bar">
-                        <div class="skill-level w-50"></div>
+                        <div class="skill-level" data-level="50"></div>
                     </div>
                 </div>
             </div>
@@ -508,5 +500,10 @@
             </section>
         </main>
     </div>
+    <script>
+        document.querySelectorAll('.skill-level[data-level]').forEach(el => {
+            el.style.width = el.dataset.level + '%';
+        });
+    </script>
 </body>
 </html>
